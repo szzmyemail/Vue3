@@ -53,6 +53,31 @@
 
 
   //绑定类class
+  let isActive = ref(true);
+  const classObject = reactive({
+    active: true,
+    'text-danger': false
+  })
+  const activeClass = ref('active')
+  const errorClass = ref('text-danger')
+
+  //绑定内联样式
+  const activeColor = ref('red')
+  const fontSize = ref(30) 
+
+  const styleObject = reactive({
+    color: 'red',
+    fontSize: '13px'
+  })
+
+  const baseStyles = reactive({
+    color: 'red',
+    fontSize: '13px'
+  })
+  const overridingStyles = reactive({
+    color: 'green',
+    fontSize: '20px'
+  })
 
 
 </script>
@@ -89,5 +114,21 @@
     <h5>计算属性</h5>
     <p>has published books: {{ publishedBooksNumber }} books</p>
     <p>{{firstName + lastName  + fullName }}</p>
+
+    <h5>绑定class</h5> 
+    <div :class="{active: isActive}">绑定class的方式 </div>
+    <p>:class 指令也可以和一般的 class attribute 共存。</p>
+    <div class="box" :class="classObject">绑定一个对象</div>
+    <div :class="[activeClass, errorClass]">绑定一个数组</div>
+    <div :class="[{ active: isActive }, errorClass]">也可以在数组中嵌套对象</div>
+    <p>在组件上使用</p>
+    <p>对于只有一个根元素的组件，当你使用了 class attribute 时，这些 class 会被添加到根元素上并与该元素上已有的 class 合并。</p>
+    <p>如果你的组件有多个根元素，你将需要指定哪个根元素来接收这个 class。你可以通过组件的 $attrs 属性来实现指定</p>
+
+
+    <h5>绑定内联样式</h5>
+    <div :style="{ color: activeColor, fontSize: fontSize + 'px' }">111</div>
+    <div :style="styleObject">222</div>
+    <div :style="[baseStyles, overridingStyles]">333</div>
   </main>
 </template>
