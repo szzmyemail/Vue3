@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { onUpdated, ref } from 'vue';
   import WatchLearn from '@/components/WatchLearn.vue';
+  import VFor from '@/components/VFor.vue';
   let todoList = ref([1, 2, 3]);
   //如何给一个响应式属性重新赋值？？？？
   function changeArr() {
@@ -13,17 +14,23 @@
 </script>
 <template>
   <div class="about">
+    <h2 class="header">Change Arr</h2>
     <button @click = changeArr()>click</button>
     <ul>
       <li v-for="(val, i) of todoList" :class="i + 'a'" :key="i">{{ val }}</li>
     </ul>
-    <h3>watch</h3>
+    <h2 class="header">watch</h2>
     <WatchLearn/>
+    <h2 class="header">v-for</h2>
+    <VFor/>
   </div>
 </template>
 
 <style>
 @media (min-width: 1024px) {
+  .header {
+    color: blue;
+  }
  
 }
 </style>
