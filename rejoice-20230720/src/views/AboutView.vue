@@ -2,6 +2,7 @@
   import { onUpdated, ref } from 'vue';
   import WatchLearn from '@/components/WatchLearn.vue';
   import VFor from '@/components/VFor.vue';
+  import LifeCycle from '@/components/LifeCycle.vue';
   let todoList = ref([1, 2, 3]);
   //如何给一个响应式属性重新赋值？？？？
   function changeArr() {
@@ -23,6 +24,8 @@
     <WatchLearn/>
     <h2 class="header">v-for</h2>
     <VFor/>
+    <h2 class="header"> Life Cycle</h2>
+    <LifeCycle/>
   </div>
 </template>
 
