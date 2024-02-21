@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, reactive, computed } from 'vue';
+  import { ref, shallowRef, reactive, computed } from 'vue';
   //模板语法
   const htmlStr = '<span style="color: red">This should be red.</span>';
   const idStr = ref('box');
@@ -20,6 +20,30 @@
   function increment() {
     count.value++;
   } 
+    //Ref 可以持有任何类型的值，包括深层嵌套的对象、数组或者 JavaScript 内置的数据结构，比如 Map。
+    //非原始值将通过 reactive() 转换为响应式代理
+    const objTest = ref({
+      nested: { count: 0 },
+      arr: ['foo', 'bar']
+    })
+
+    function mutateDeeply() {
+      // 以下都会按照期望工作
+      objTest.value.nested.count++
+      objTest.value.arr.push('baz')
+    }
+
+    const objTest2 = shallowRef({
+      nested: { count: 99 },
+      arr: ['foo', 'bar']
+    })
+
+    function mutateDeeply2() {
+      // 以下不会按照期望工作
+      objTest2.value.nested.count++
+      objTest2.value.arr.push('baz22')
+    }
+
 
 
 
@@ -106,7 +130,14 @@
     <span>{{ count }}</span>
     <!-- <button v-on:click = increment()>click</button> -->
     <!-- 简写 -->
+    <p>{{ objTest.nested.count }}</p>
+    <p>{{ objTest.arr[2] }}</p>
+
+    <p>{{ objTest2.nested.count }}</p>
+    <p>{{ objTest2.arr[2] }}</p>
     <button @click = increment()>click</button>
+    <button @click="mutateDeeply()">mutateDeeply</button>
+    <button @click="mutateDeeply2()">mutateDeeply2</button>
     
     
 
