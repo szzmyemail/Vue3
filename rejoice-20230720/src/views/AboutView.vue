@@ -3,6 +3,7 @@
   import WatchLearn from '@/components/WatchLearn.vue';
   import VFor from '@/components/VFor.vue';
   import LifeCycle from '@/components/LifeCycle.vue';
+  import PropsLearn from '@/components/PropsLearn.vue';
   let todoList = ref([1, 2, 3]);
   //如何给一个响应式属性重新赋值？？？？
   function changeArr() {
@@ -12,6 +13,13 @@
   onUpdated(() =>{
     console.log('DOM 更新发生了');
   })
+
+  const name = ref('lily');
+  function changeName() {
+    name.value+= "new Lily"
+  }
+
+  const arr = ref([1, 2, 3]);
 </script>
 <template>
   <div class="about">
@@ -26,6 +34,10 @@
     <VFor/>
     <h2 class="header"> Life Cycle</h2>
     <LifeCycle/>
+    <h2 class="header"> Props Learn</h2>
+    <PropsLearn :name = 'name' :arr="arr"/>
+    <button @click="changeName()">change name</button>
+    <p>arr: {{ arr.toString() }}</p>
   </div>
 </template>
 
