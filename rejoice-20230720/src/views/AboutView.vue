@@ -4,6 +4,7 @@
   import VFor from '@/components/VFor.vue';
   import LifeCycle from '@/components/LifeCycle.vue';
   import PropsLearn from '@/components/PropsLearn.vue';
+  import EmitLearn from '@/components/EmitLearn.vue';
   let todoList = ref([1, 2, 3]);
   //如何给一个响应式属性重新赋值？？？？
   function changeArr() {
@@ -20,6 +21,10 @@
   }
 
   const arr = ref([1, 2, 3]);
+
+  function testEmit(event: any) {
+    console.log(999, event);
+  }
 </script>
 <template>
   <div class="about">
@@ -38,6 +43,9 @@
     <PropsLearn :name = 'name' :arr="arr"/>
     <button @click="changeName()">change name</button>
     <p>arr: {{ arr.toString() }}</p>
+
+    <h2 class="header"> Emits Learn</h2>
+    <EmitLearn @login-in="testEmit($event)"/>
   </div>
 </template>
 
