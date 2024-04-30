@@ -5,6 +5,7 @@
   import LifeCycle from '@/components/LifeCycle.vue';
   import PropsLearn from '@/components/PropsLearn.vue';
   import EmitLearn from '@/components/EmitLearn.vue';
+  import Vmodel from '@/components/Vmodel.vue';
   let todoList = ref([1, 2, 3]);
   //如何给一个响应式属性重新赋值？？？？
   function changeArr() {
@@ -25,6 +26,8 @@
   function testEmit(event: any) {
     console.log(999, event);
   }
+
+  const status = ref('peace');
 </script>
 <template>
   <div class="about">
@@ -46,6 +49,11 @@
 
     <h2 class="header"> Emits Learn</h2>
     <EmitLearn @login-in="testEmit($event)"/>
+
+
+    <h2 class="header"> v-model</h2>
+    <p>{{ status }}</p>
+    <Vmodel v-model='status'/>
   </div>
 </template>
 
