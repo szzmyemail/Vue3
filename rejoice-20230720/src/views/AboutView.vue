@@ -6,6 +6,7 @@
   import PropsLearn from '@/components/PropsLearn.vue';
   import EmitLearn from '@/components/EmitLearn.vue';
   import Vmodel from '@/components/Vmodel.vue';
+  import RefReactive from '@/components/RefReactive.vue';
   let todoList = ref([1, 2, 3]);
   //如何给一个响应式属性重新赋值？？？？
   function changeArr() {
@@ -54,6 +55,8 @@
     <h2 class="header"> v-model</h2>
     <p>{{ status }}</p>
     <Vmodel v-model='status'/>
+    <h2 class='header'> reactive </h2>
+    <RefReactive/>
   </div>
 </template>
 
