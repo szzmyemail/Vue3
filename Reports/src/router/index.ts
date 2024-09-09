@@ -10,6 +10,7 @@ import Props from '../views/Props.vue'
 import Hooks from '../views/Hooks.vue'
 import Pinia from '../views/Pinia.vue'
 import PropsAndEmit from '../views/PropsAndEmit.vue'
+import VModel from '../views/VModel.vue'
 
 
 import News from '../components/News.vue'
@@ -159,6 +160,10 @@ const router = createRouter({
     {
       path: '/props-and-emit',
       component: PropsAndEmit
+    },
+    {
+      path: '/component-v-model',
+      component: VModel
     },
   ]
 })

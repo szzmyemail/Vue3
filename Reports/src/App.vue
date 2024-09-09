@@ -68,9 +68,14 @@ import HelloWorld from './components/HelloWorld.vue'
               <RouterLink to="/pinia">Pinia</RouterLink>
             </span>
           </el-menu-item>
-          <el-menu-item index="12">
+          <el-menu-item index="13">
             <span>
               <RouterLink to="/props-and-emit">Props&Emit</RouterLink>
+            </span>
+          </el-menu-item>
+          <el-menu-item index="14">
+            <span>
+              <RouterLink to="/component-v-model">Component v-model</RouterLink>
             </span>
           </el-menu-item>
         </el-menu>
